@@ -1,0 +1,18 @@
+header { 
+    display: flex;
+    justify-content: space-between;
+    padding: 0px, 20px, 0px, 20px;
+    align-items: center;
+    border-bottom: white 5px solid;
+    background-color:#F3E9F1 ;
+
+    & img { 
+        width: 250px;
+        padding-left: 40px;
+    }
+    & p { 
+        padding-right: 40px;
+        font-size: 2em;
+        font-family: $font-text;
+    }
+}

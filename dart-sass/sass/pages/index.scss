@@ -1,0 +1,68 @@
+
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    justify-content: space-evenly;
+    align-items: space-evenly ;
+    margin: 0 auto;
+    background-color:white ;
+    
+    & .card {
+        display: flex;
+        flex-direction: row;
+        width: 500px;
+        height: 275px;
+        margin: 20px;
+        background: white;
+        box-shadow: $button-shadow;
+
+        & img { 
+            display      : flex;
+            object-fit   : cover;
+            height       : 100%;
+            width: 40%;
+            padding-bottom: 0.5em;
+        }
+
+        & .second-card { 
+            display: flex;
+            flex-direction: column;
+            padding-left: 15px;
+            margin-left: 10px;
+
+            & p {
+            text-align: left;
+
+            font-family: $font-text;
+            font-size: 0.8em;
+    
+            }
+            & .price, .name { 
+                font-size: 1.4em;
+                margin: 1px;
+                font-weight: bold;
+                padding-bottom: 15px;
+                padding-top: 15px;
+                color: $color-text-logo;
+            }
+            & .description { 
+                font-style: italic;
+                width: 75%;
+            }
+    
+            & button { 
+                width: 50%;
+                @include mixin-button;
+            }
+            & select { 
+                width: 50%;
+                margin-bottom: 20px;
+                border: 1px solid $color-background;
+                border-radius: 0.5em 0.5em 0.5em 0.5em;
+            }
+        } 
+        }
+        
+} 

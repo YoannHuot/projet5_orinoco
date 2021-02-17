@@ -1,0 +1,95 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px, 20px, 0px, 20px;
+  align-items: center;
+  border-bottom: white 5px solid;
+  background-color: #F3E9F1;
+}
+header img {
+  width: 250px;
+  padding-left: 40px;
+}
+header p {
+  padding-right: 40px;
+  font-size: 2em;
+  font-family: "Roboto", sans-serif;
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  justify-content: space-evenly;
+  align-items: space-evenly;
+  margin: 0 auto;
+  background-color: white;
+}
+section .card {
+  display: flex;
+  flex-direction: row;
+  width: 500px;
+  height: 275px;
+  margin: 20px;
+  background: white;
+  box-shadow: 0px 15px 26px -17px rgba(0, 0, 0, 0.46);
+}
+section .card img {
+  display: flex;
+  object-fit: cover;
+  height: 100%;
+  width: 40%;
+  padding-bottom: 0.5em;
+}
+section .card .second-card {
+  display: flex;
+  flex-direction: column;
+  padding-left: 15px;
+  margin-left: 10px;
+}
+section .card .second-card p {
+  text-align: left;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.8em;
+}
+section .card .second-card .price, section .card .second-card .name {
+  font-size: 1.4em;
+  margin: 1px;
+  font-weight: bold;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  color: #3e2f3c;
+}
+section .card .second-card .description {
+  font-style: italic;
+  width: 75%;
+}
+section .card .second-card button {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 70%;
+  border-radius: 2em;
+  border: none;
+  background: linear-gradient(128deg, #e28814 0%, #a868b8 41%, #915cf9 100%);
+  box-shadow: 0px 15px 26px -17px rgba(0, 0, 0, 0.46);
+  color: white;
+  font-size: 1em;
+  transform: scale(1);
+  transition: 0.2s;
+}
+section .card .second-card button:hover {
+  transform: scale(1.05);
+  box-shadow: 5px 15px 35px -10px rgba(0, 0, 0, 0.46);
+  background: linear-gradient(128deg, #a868b8 0%, #915cf9 43%, #e28814 100%);
+}
+section .card .second-card select {
+  width: 50%;
+  margin-bottom: 20px;
+  border: 1px solid #F3E9F1;
+  border-radius: 0.5em 0.5em 0.5em 0.5em;
+}
+
+/*# sourceMappingURL=style.css.map */
