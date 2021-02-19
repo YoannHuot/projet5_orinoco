@@ -1,26 +1,26 @@
-.section-index {
+.section-produit {
     display: flex;
     flex-wrap: wrap;
     width: 90%;
-    justify-content: space-evenly;
-    align-items: space-evenly ;
     margin: 0 auto;
     background-color:white ;
+    justify-content: space-between;
+
+    .card-recap { 
+        width: 400px;
+        height: 600px;
+        box-shadow: $button-shadow;
+    }
 
     .card {
         display: flex;
         flex-direction: row;
-        width: 500px;
-        height: 330px;
+        width: 700px;
+        height: 430px;
         margin: 20px;
         background: white;
         box-shadow: $button-shadow;
-        &:hover { 
-            transform: scale(1.01);
-            transition: 300ms;
-        }
-
-
+    
         & img { 
             display      : flex;
             object-fit   : cover;
@@ -30,41 +30,57 @@
         }
     
         & .second-card { 
-            width: 100%;
-            margin-left: 20px;
             display: flex;
             flex-direction: column;
+            padding-left: 15px;
+            margin-left: 10px;
             font-family: $font-text;
     
+            & p {
+            text-align: left;
+            font-size: 0.8em;
+            }
             & a { 
                 display: flex;
                 text-decoration: none;
-                width: 80%;
-                background: $color-gradient-logo;
-                margin-top: 20px;
+                width: 100%;
+                background: green;
+                margin-top: 70px;
+                margin-left: -10px;
                 margin-right: 0px;
                 justify-content: center;
                 align-items: center;
                 height: 40px;
                 text-transform: uppercase;
                 color: white;
-                margin-top: 75px ;
-                border-radius: 1em 1em 1em 1em;
-                @include zoom;
+                cursor: pointer;
                 &:hover { 
-                    box-shadow:5px 15px 35px -10px rgba(0,0,0,0.46);
-                    background: $color-gradient-logo-inverse
+                    transform: scale(1.005);
+                    transition: 500ms;
                 }
             } 
             & .price, .name { 
-                width: 50%;
                 font-size: 1.4em;
                 margin: 1px;
                 font-weight: bold;
-                padding-bottom: 30px;
-                padding-top: 30px;
-                border-bottom: black solid 1px;
+                padding-bottom: 15px;
+                padding-top: 15px;
                 color: $color-text-logo;
+            }
+            & .description { 
+                font-style: italic;
+                width: 75%;
+            }
+            & .button-panier { 
+                @include mixin-button;
+                margin-top: 30px;
+            }
+
+            & select { 
+                width: 50%;
+                margin-bottom: 20px;
+                margin-top: 20px;
+                border-radius: 0.5em 0.5em 0.5em 0.5em;
             }
         } 
         }

@@ -16,7 +16,7 @@ header p {
   font-family: "Roboto", sans-serif;
 }
 
-section {
+.section-index {
   display: flex;
   flex-wrap: wrap;
   width: 90%;
@@ -25,34 +25,127 @@ section {
   margin: 0 auto;
   background-color: white;
 }
-section .card {
+.section-index .card {
   display: flex;
   flex-direction: row;
   width: 500px;
-  height: 275px;
+  height: 330px;
   margin: 20px;
   background: white;
   box-shadow: 0px 15px 26px -17px rgba(0, 0, 0, 0.46);
 }
-section .card img {
+.section-index .card:hover {
+  transform: scale(1.01);
+  transition: 300ms;
+}
+.section-index .card img {
   display: flex;
   object-fit: cover;
   height: 100%;
   width: 40%;
   padding-bottom: 0.5em;
 }
-section .card .second-card {
+.section-index .card .second-card {
+  width: 100%;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  font-family: "Roboto", sans-serif;
+}
+.section-index .card .second-card a {
+  display: flex;
+  text-decoration: none;
+  width: 80%;
+  background: linear-gradient(128deg, #e28814 0%, #a868b8 41%, #915cf9 100%);
+  margin-top: 20px;
+  margin-right: 0px;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  text-transform: uppercase;
+  color: white;
+  margin-top: 75px;
+  border-radius: 1em 1em 1em 1em;
+}
+.section-index .card .second-card a:hover {
+  transform: scale(1.05);
+  transition: 500ms;
+}
+.section-index .card .second-card a:hover {
+  box-shadow: 5px 15px 35px -10px rgba(0, 0, 0, 0.46);
+  background: linear-gradient(128deg, #a868b8 0%, #915cf9 43%, #e28814 100%);
+}
+.section-index .card .second-card .price, .section-index .card .second-card .name {
+  width: 50%;
+  font-size: 1.4em;
+  margin: 1px;
+  font-weight: bold;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  border-bottom: black solid 1px;
+  color: #3e2f3c;
+}
+
+.section-produit {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 0 auto;
+  background-color: white;
+  justify-content: space-between;
+}
+.section-produit .card-recap {
+  width: 400px;
+  height: 600px;
+  box-shadow: 0px 15px 26px -17px rgba(0, 0, 0, 0.46);
+}
+.section-produit .card {
+  display: flex;
+  flex-direction: row;
+  width: 700px;
+  height: 430px;
+  margin: 20px;
+  background: white;
+  box-shadow: 0px 15px 26px -17px rgba(0, 0, 0, 0.46);
+}
+.section-produit .card img {
+  display: flex;
+  object-fit: cover;
+  height: 100%;
+  width: 40%;
+  padding-bottom: 0.5em;
+}
+.section-produit .card .second-card {
   display: flex;
   flex-direction: column;
   padding-left: 15px;
   margin-left: 10px;
-}
-section .card .second-card p {
-  text-align: left;
   font-family: "Roboto", sans-serif;
+}
+.section-produit .card .second-card p {
+  text-align: left;
   font-size: 0.8em;
 }
-section .card .second-card .price, section .card .second-card .name {
+.section-produit .card .second-card a {
+  display: flex;
+  text-decoration: none;
+  width: 100%;
+  background: green;
+  margin-top: 70px;
+  margin-left: -10px;
+  margin-right: 0px;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  text-transform: uppercase;
+  color: white;
+  cursor: pointer;
+}
+.section-produit .card .second-card a:hover {
+  transform: scale(1.005);
+  transition: 500ms;
+}
+.section-produit .card .second-card .price, .section-produit .card .second-card .name {
   font-size: 1.4em;
   margin: 1px;
   font-weight: bold;
@@ -60,12 +153,11 @@ section .card .second-card .price, section .card .second-card .name {
   padding-top: 15px;
   color: #3e2f3c;
 }
-section .card .second-card .description {
+.section-produit .card .second-card .description {
   font-style: italic;
   width: 75%;
 }
-section .card .second-card button {
-  width: 50%;
+.section-produit .card .second-card .button-panier {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,18 +169,21 @@ section .card .second-card button {
   box-shadow: 0px 15px 26px -17px rgba(0, 0, 0, 0.46);
   color: white;
   font-size: 1em;
-  transform: scale(1);
-  transition: 0.2s;
+  margin-top: 30px;
 }
-section .card .second-card button:hover {
+.section-produit .card .second-card .button-panier:hover {
+  transform: scale(1.05);
+  transition: 500ms;
+}
+.section-produit .card .second-card .button-panier:hover {
   transform: scale(1.05);
   box-shadow: 5px 15px 35px -10px rgba(0, 0, 0, 0.46);
   background: linear-gradient(128deg, #a868b8 0%, #915cf9 43%, #e28814 100%);
 }
-section .card .second-card select {
+.section-produit .card .second-card select {
   width: 50%;
   margin-bottom: 20px;
-  border: 1px solid #F3E9F1;
+  margin-top: 20px;
   border-radius: 0.5em 0.5em 0.5em 0.5em;
 }
 
