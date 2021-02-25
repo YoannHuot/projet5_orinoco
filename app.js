@@ -1,10 +1,8 @@
-let createDiv;
-let createButtonAdd;
+let sectionIndex = document.querySelector(".section-index");
 
-const apiRequete = fetch("http://localhost:3000/api/furniture")
+fetch("http://localhost:3000/api/furniture")
 	.then((reponse) => reponse.json())
 	.then((data) => {
-		try {
 			for (let i = 0; i < data.length; i++) {
 				// création des divs produit et des informations relatives récupérer sur le tableau de l'API (nom, description, prix...)
 				let createDiv = document.createElement("div");
@@ -30,14 +28,11 @@ const apiRequete = fetch("http://localhost:3000/api/furniture")
 				createAA.setAttribute('href', "page-produit.html?id="+data[i]._id);
 	
 				// insertion des éléments créés au sein de la div principale 
-				document.querySelector(".section-index").appendChild(createDiv);
+				sectionIndex.appendChild(createDiv);
 				createDiv.appendChild(createImg);
 				createDiv.appendChild(createSecondDiv);
 				createSecondDiv.appendChild(createName);
 				createSecondDiv.appendChild(createPrice);
 				createSecondDiv.appendChild(createAA);
 			}
-		} catch (error) {
-			alert("une erreur est survenue");
-		}
 });

@@ -187,4 +187,37 @@ header p {
   border-radius: 0.5em 0.5em 0.5em 0.5em;
 }
 
+.section-recap {
+  width: 80%;
+  height: 400px;
+}
+.section-recap .grid-produit {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 21% 27.5% 16%;
+  grid-template-rows: 40px 40px 40px;
+  gap: 0px 0px;
+  grid-template-areas: "picturebasket productname productdelete" "picturebasket productprice productdelete" "picturebasket productquantity productdelete";
+}
+.section-recap .picturebasket {
+  grid-row: 1/span 3;
+  grid-column: 1;
+  display: flex;
+  width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+.section-recap .productname {
+  grid-area: productname;
+}
+.section-recap .productprice {
+  grid-area: productprice;
+}
+.section-recap .productquantity {
+  grid-area: productquantity;
+}
+.section-recap .productdelete {
+  grid-area: productdelete;
+}
+
 /*# sourceMappingURL=style.css.map */

@@ -1,0 +1,31 @@
+.section-recap { 
+    width: 80%;
+    height: 400px;
+
+    
+    & .grid-produit {
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: 21% 27.5% 16%;
+        grid-template-rows: 40px 40px 40px;
+        gap: 0px 0px;
+        grid-template-areas:
+          "picturebasket productname productdelete"
+          "picturebasket productprice productdelete"
+          "picturebasket productquantity productdelete";
+      }
+      .picturebasket { 
+        grid-row: 1 / span 3;
+        grid-column: 1;
+        display: flex;
+        width: 100%;
+        max-height: 100%;
+        object-fit: cover;
+    }
+      .productname { grid-area: productname; }
+      .productprice { grid-area: productprice; }
+      .productquantity { grid-area: productquantity; }
+      .productdelete { grid-area: productdelete; }
+      
+    };
+
