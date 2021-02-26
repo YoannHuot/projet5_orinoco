@@ -45,6 +45,7 @@ fetch("http://localhost:3000/api/furniture/"+idProduit)
             createOption.value = data.varnish[j];
             createSelect.appendChild(createOption);
         }
+
         // création du bouton ajouter au panier 
         let createButtonAdd = document.createElement("button"); 
 				createButtonAdd.className = "button-panier";
@@ -68,11 +69,10 @@ fetch("http://localhost:3000/api/furniture/"+idProduit)
         createSecondDiv.appendChild(createButtonRedirection);
 
         let cageCount = document.getElementsByClassName("cage-count"); 
-        cageCount.innerText = 0;
+
 
                 // ------------------  création de l'objet produit -------------// 
         let objectProduct = {
-            id : idProduit, 
             name : createName.innerHTML, 
             price : createPrice.innerText, 
             img : createImg.src,
@@ -82,34 +82,32 @@ fetch("http://localhost:3000/api/furniture/"+idProduit)
         
         createButtonAdd.addEventListener("click", () => { 
             addToCard();
-            // cageCount.innerText++;
         })
+
+
 
         // ------------------------- FONCTION ADDTOCARD - LOCAL STORAGE ---------------------------// 
         function addToCard() { 
-            
-        // ----------- variable pour checker ce qu'il y a dans le local storage et les convertir en object JAVASCRIPT depuis le format JSON----------// 
-        let productStockLocal = JSON.parse(localStorage.getItem("product")); 
+        let productStockLocal = JSON.parse(localStorage.getItem("product")); // ----------- variable pour checker ce qu'il y a dans le local storage et les convertir en format JAVASCRIPT depuis le format JSON----------//
             
             if (productStockLocal !== null) { 
-                
                 productStockLocal = {
-                    ...productStockLocal,[objectProduct.name] : objectProduct
+                    ...productStockLocal,[objectProduct.name] : objectProduct // permet de regrouper les mêmes cards sous un même objet // 
                 } 
-                productStockLocal[objectProduct.name].quantity+=1;
-
-                //productStockLocal.objectProduct.quantity++;
+                productStockLocal[objectProduct.name].quantity++;
+                
+                ; // augemente la quantité d'un objet cliqué plusieurs fois // 
                 // console.log("log de productStoclLocal qui est localstorage : " + Object.values(productStockLocal));
                 // console.log("log de quantity de l'objet de localstorage : " + productStockLocal.objectProduct);
 
-            } else { 
-                objectProduct.quantity = 1;
+            } else { // permet de créer un objet avec pour paramètre le nom de l'objet comme propriété/valeur, le tableau ObjetProduct. 
                 productStockLocal = {
                     [objectProduct.name] : objectProduct
                 }    
-            }
-            localStorage.setItem("product", JSON.stringify(productStockLocal));
-        // ----------- fonction de push des valeurs dans le tableau crée dans le localStorage ----------- // 
+            }localStorage.setItem("product", JSON.stringify(productStockLocal)); 
+            
+            // ----------- qui renvoie les valeurs au localstorage au format JSON ----------- // 
+        
     };
 });
          // ------------------------- FIN DE L'AJOUT AU LOCAL STORAGE ---------------------------// 

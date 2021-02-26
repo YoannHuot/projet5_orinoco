@@ -1,13 +1,32 @@
 .section-recap { 
-    width: 80%;
-    height: 400px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 800px;
+  flex-direction: row;
+  margin: 0 auto;
 
-    
+
+  & .basket-recap  { 
+    width: 20%; 
+    height: 500px;
+    background-color: red
+  }
+  
+  & .article-recap {   
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+
     & .grid-produit {
-        margin-top: 20px;
+      border: black solid 2px;
+      border-radius:  1em 1em 1em 1em;
+      width: 100%;
+      height: 200px;
+      margin-top: 20px;
         display: grid;
-        grid-template-columns: 21% 27.5% 16%;
-        grid-template-rows: 40px 40px 40px;
+        grid-template-columns: 40% 40% auto;
+        grid-template-rows: 20% 20% 60%;
         gap: 0px 0px;
         grid-template-areas:
           "picturebasket productname productdelete"
@@ -15,17 +34,21 @@
           "picturebasket productquantity productdelete";
       }
       .picturebasket { 
+        border-radius:  1em 0em 0em 1em;
         grid-row: 1 / span 3;
         grid-column: 1;
         display: flex;
         width: 100%;
-        max-height: 100%;
+        height: 100%;
         object-fit: cover;
     }
       .productname { grid-area: productname; }
       .productprice { grid-area: productprice; }
       .productquantity { grid-area: productquantity; }
       .productdelete { grid-area: productdelete; }
-      
-    };
+
+
+  }
+};
+
 

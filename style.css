@@ -188,35 +188,54 @@ header p {
 }
 
 .section-recap {
-  width: 80%;
-  height: 400px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 800px;
+  flex-direction: row;
+  margin: 0 auto;
 }
-.section-recap .grid-produit {
+.section-recap .basket-recap {
+  width: 20%;
+  height: 500px;
+  background-color: red;
+}
+.section-recap .article-recap {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.section-recap .article-recap .grid-produit {
+  border: black solid 2px;
+  border-radius: 1em 1em 1em 1em;
+  width: 100%;
+  height: 200px;
   margin-top: 20px;
   display: grid;
-  grid-template-columns: 21% 27.5% 16%;
-  grid-template-rows: 40px 40px 40px;
+  grid-template-columns: 40% 40% auto;
+  grid-template-rows: 20% 20% 60%;
   gap: 0px 0px;
   grid-template-areas: "picturebasket productname productdelete" "picturebasket productprice productdelete" "picturebasket productquantity productdelete";
 }
-.section-recap .picturebasket {
+.section-recap .article-recap .picturebasket {
+  border-radius: 1em 0em 0em 1em;
   grid-row: 1/span 3;
   grid-column: 1;
   display: flex;
   width: 100%;
-  max-height: 100%;
+  height: 100%;
   object-fit: cover;
 }
-.section-recap .productname {
+.section-recap .article-recap .productname {
   grid-area: productname;
 }
-.section-recap .productprice {
+.section-recap .article-recap .productprice {
   grid-area: productprice;
 }
-.section-recap .productquantity {
+.section-recap .article-recap .productquantity {
   grid-area: productquantity;
 }
-.section-recap .productdelete {
+.section-recap .article-recap .productdelete {
   grid-area: productdelete;
 }
 
