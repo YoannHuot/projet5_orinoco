@@ -1,46 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/3d24bbc490.js" crossorigin="anonymous"></script>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="https://kit.fontawesome.com/3d24bbc490.js" crossorigin="anonymous"></script>
 
-    <title>Page panier</title>
-    <link rel="stylesheet" href="style.css">
+		<title>Page panier</title>
+		<link rel="stylesheet" href="style.css" />
 
-    <title>recap de votre commande</title>
-</head>
-<body>
-    <header>
-        <a href ="index.html">
-            <h1 class="logo">
-                <img src="https://user.oc-static.com/upload/2019/09/04/15675819263013_image1.png">
-            </h1>
-        </a>
-        <a>
-            <i class="fas fa-shopping-cart">
-                <p class="cage-count"> 0 </p>
-            </i> 
-        </a>
-    </header>
-    <button onclick="localStorage.clear()">Clear local storage</button>
+		<title>recap de votre commande</title>
+	</head>
+	<body>
+		<header>
+			<a href="index.html">
+				<h1 class="logo">
+					<img
+						src="https://user.oc-static.com/upload/2019/09/04/15675819263013_image1.png"
+					/>
+				</h1>
+			</a>
+			<a>
+				<i class="fas fa-shopping-cart">
+					<p class="cage-count">0</p>
+				</i>
+			</a>
+		</header>
+		<button onclick="localStorage.clear()">Clear local storage</button>
 
-    <section class ="section-recap">
-        <article class ="article-recap">
-        </article>
-        <article class="basket-recap">
-            <h2>Total HT</h2>
-                <p class ="price-product-recap">prix produit</p>
-            <h2>TVA</h2>
-                <p class ="tva-product-recap">total</p>
-            <h2>TOTAL TTC</h2>
-                <p class ="total-product-recap">total</p>
-            <button class = "confirm-commande">confirmer ma commande</button>
-        </article>
-        
-    </section>
-        
-    <script src="panier.js"></script>
-</body>
+		<section class="section-recap">
+			<article class="article-recap"></article>
+			<article class="basket-recap">
+				<h2>Total HT</h2>
+				<p class="price-product-recap">0</p>
+				<h2>TVA</h2>
+				<p class="tva-product-recap">0</p>
+				<h2>TOTAL TTC</h2>
+				<p class="total-product-recap">0</p>
+
+				<Form method="POST" class = "formulaire" name="form">
+					<input input="text" name="firstname" value="" class="firstname" placeholder="prénom"><br>
+						<input input="text" name="lastname" value="" class="lastname" placeholder="nom"><br>
+							<input input="text" name="address" value="" class="address" placeholder="adresse"><br>
+								<input input="text" name="city" value="" class="city" placeholder="ville de résidence"><br>
+									<input input="text" type ="email" name="input" value="" class="mail" placeholder="adresse mail"><br>
+										<input type = "submit" class="confirm-commande" name ="text" value = "confirmer ma commande"></input>
+				</Form>
+				<div class ="erreur"></div>
+			</article>
+		</section>
+		<script src="panier.js"></script>
+	</body>
 </html>
