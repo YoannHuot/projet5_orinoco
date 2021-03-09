@@ -61,14 +61,15 @@ else {
 
 		let createPriceBasket = document.createElement("p");
 		createPriceBasket.className = "productprice";
-		createPriceBasket.innerHTML = productStockLocal[k].price;
+		createPriceBasket.innerHTML = "Prix : " + productStockLocal[k].price + " €";
 
 		let createQuantityBasket = document.createElement("p");
 		createQuantityBasket.className = "productquantity";
-		createQuantityBasket.innerText = Number(productStockLocal[k].quantity);
+		createQuantityBasket.innerText = "Qté :  " + Number(productStockLocal[k].quantity);
 
-		let createDeleteBasket = document.createElement("div");
+		let createDeleteBasket = document.createElement("i");
 		createDeleteBasket.className = "productdelete";
+		createDeleteBasket.innerHTML = `<i class="far fa-trash-alt"></i>`;
 
 		let createSelectQuantityBasket = document.createElement("select");
 
@@ -88,8 +89,8 @@ else {
 
 		// --- ADDEVENTLISTERER CHANGEMENT DE QUANTITE SUR LE SELECTION ---- ///
 		createSelectQuantityBasket.addEventListener("change", (event) => {
-			let testConfirm = confirm("voulez vous changer le localstorage ?");
-			if ((testConfirm = true)) {
+			let testConfirm = confirm("voulez vous changer le localstorage ?"); // attention
+			if (testConfirm) {
 				let resultOptionSelect = Number(event.target.value);
 				createQuantityBasket.innerText = Number(resultOptionSelect);
 
@@ -117,7 +118,6 @@ else {
 				}
 			}
 			productStockLocal.push(propriete);
-			return;
 		}
 	}
 }

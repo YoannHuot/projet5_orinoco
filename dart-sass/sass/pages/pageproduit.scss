@@ -1,87 +1,114 @@
 .section-produit {
-    display: flex;
-    flex-wrap: wrap;
-    width: 90%;
-    margin: 0 auto;
-    background-color:white ;
-    justify-content: space-between;
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	background-color: white;
+	margin-top: 40px;
+	a .card-recap {
+		width: 400px;
+		height: 600px;
+		box-shadow: $button-shadow;
+	}
 
-    .card-recap { 
-        width: 400px;
-        height: 600px;
-        box-shadow: $button-shadow;
-    }
+	.card {
+		display: flex;
+		flex-direction: row;
+		width: 800px;
+		height: 490px;
+		margin: 20px;
+		background: white;
+		box-shadow: $button-shadow;
+		border-radius: 1.5em 1.5em 1.5em 1.5em;
 
-    .card {
-        display: flex;
-        flex-direction: row;
-        width: 700px;
-        height: 430px;
-        margin: 20px;
-        background: white;
-        box-shadow: $button-shadow;
-    
-        & img { 
-            display      : flex;
-            object-fit   : cover;
-            height       : 100%;
-            width: 40%;
-            padding-bottom: 0.5em;
-        }
-    
-        & .second-card { 
-            display: flex;
-            flex-direction: column;
-            padding-left: 15px;
-            margin-left: 10px;
-            font-family: $font-text;
-    
-            & p {
-            text-align: left;
-            font-size: 0.8em;
-            }
-            & a { 
-                display: flex;
-                text-decoration: none;
-                width: 100%;
-                background: green;
-                margin-top: 70px;
-                margin-left: -10px;
-                margin-right: 0px;
-                justify-content: center;
-                align-items: center;
-                height: 40px;
-                text-transform: uppercase;
-                color: white;
-                cursor: pointer;
-                &:hover { 
-                    transform: scale(1.005);
-                    transition: 500ms;
-                }
-            } 
-            & .price, .name { 
-                font-size: 1.4em;
-                margin: 1px;
-                font-weight: bold;
-                padding-bottom: 15px;
-                padding-top: 15px;
-                color: $color-text-logo;
-            }
-            & .description { 
-                font-style: italic;
-                width: 75%;
-            }
-            & .button-panier { 
-                @include mixin-button;
-                margin-top: 30px;
-            }
+		& img {
+			display: flex;
+			object-fit: cover;
+			height: 100%;
+			width: 52%;
+			padding-bottom: 0.5em;
+			border-radius: 1.5em 0em 0em 1.5em;
+		}
 
-            & select { 
-                width: 50%;
-                margin-bottom: 20px;
-                margin-top: 20px;
-                border-radius: 0.5em 0.5em 0.5em 0.5em;
-            }
-        } 
-        }
-    }
+		& .second-card {
+			display: flex;
+			flex-direction: column;
+			padding-left: 15px;
+			margin-left: 10px;
+			font-family: $font-text;
+			position: relative;
+
+			& p {
+				text-align: left;
+			}
+			& a {
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				display: flex;
+				text-decoration: none;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+				height: 20%;
+				width: 50%;
+				background: $color-gradient-logo;
+				color: white;
+				box-shadow: rgba(0, 0, 0, 0.25) -2.5px -2.5px 2px;
+				border-radius: 5em 0em 1.5em 0em;
+				text-transform: initial;
+				cursor: pointer;
+				&:hover {
+					transform: scale(1.03);
+					transition: 500ms;
+					background: $color-gradient-logo-inverse;
+				}
+			}
+			& .name {
+				font-weight: bold;
+				color: #474747;
+				font-family: "Bentham", serif;
+				font-size: 2em;
+				color: $color-text-logo;
+			}
+
+			& .description {
+				width: 95%;
+				height: 100px;
+				font-family: "Playfair Display", serif;
+				color: #8d8d8d;
+				font-size: 17px;
+				font-weight: 100;
+				line-height: 25px;
+			}
+
+			& .third-div-product {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				width: 100%;
+				height: 20%;
+				& .price {
+					font-weight: bold;
+					font-size: 2em;
+					font-family: "Suranna", serif;
+					color: $color-text-logo;
+					margin-right: 50px;
+				}
+				& .button-panier {
+					@include mixin-button;
+
+					&:focus {
+						outline: none;
+					}
+				}
+			}
+
+			& select {
+				width: 100px;
+				margin-bottom: 20px;
+				margin-top: 20px;
+				border-radius: 0.5em 0.5em 0.5em 0.5em;
+			}
+		}
+	}
+}

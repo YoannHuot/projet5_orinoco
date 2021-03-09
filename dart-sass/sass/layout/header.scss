@@ -1,18 +1,42 @@
-header { 
-    display: flex;
-    justify-content: space-between;
-    padding: 0px, 20px, 0px, 20px;
-    align-items: center;
-    border-bottom: white 5px solid;
-    background-color:#F3E9F1 ;
+body {
+	margin: 0px;
+}
 
-    & img { 
-        width: 250px;
-        padding-left: 40px;
-    }
-    & p { 
-        padding-right: 40px;
-        font-size: 2em;
-        font-family: $font-text;
-    }
+header {
+	display: flex;
+	justify-content: space-between;
+	padding: 0px, 20px, 0px, 20px;
+	align-items: center;
+	border-bottom: white 5px solid;
+	height: 180px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+
+	& img {
+		width: 250px;
+		padding-left: 100px;
+	}
+	& .picto-basket {
+		display: flex;
+		margin-right: 100px;
+		width: 100px;
+		justify-content: center;
+		align-items: center;
+		text-decoration: none;
+		background: $color-gradient-logo;
+		border-radius: 8em 8em 8em 8em;
+
+		& p {
+			width: 20px;
+			font-size: 1.5em;
+			font-family: $font-text;
+			color: white;
+		}
+	}
+
+	& i {
+		font-size: 1.5em;
+		color: white;
+		width: 40px;
+		margin: 0;
+	}
 }

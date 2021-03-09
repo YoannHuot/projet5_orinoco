@@ -1,71 +1,83 @@
 .section-index {
-    display: flex;
-    flex-wrap: wrap;
-    width: 90%;
-    justify-content: space-evenly;
-    align-items: space-evenly ;
-    margin: 0 auto;
-    background-color:white ;
+	display: flex;
+	flex-wrap: wrap;
+	width: 90%;
+	justify-content: space-evenly;
+	align-items: space-evenly;
+	margin: 0 auto;
+	margin-top: 40px;
 
-    .card {
-        display: flex;
-        flex-direction: row;
-        width: 500px;
-        height: 330px;
-        margin: 20px;
-        background: white;
-        box-shadow: $button-shadow;
-        &:hover { 
-            transform: scale(1.01);
-            transition: 300ms;
-        }
+	.card {
+		display: flex;
+		flex-direction: column;
+		width: 300px;
+		height: 420px;
+		margin: 20px;
+		background: white;
+		box-shadow: $button-shadow;
+		border-radius: 2em 2em 2em 2em;
+		box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+		&:hover {
+			transform: scale(1.01);
+			transition: 300ms;
+		}
 
+		& img {
+			display: flex;
+			object-fit: cover;
+			height: 300px;
+			width: 100%;
+			border-radius: 2em 2em 0em 0em;
+		}
 
-        & img { 
-            display      : flex;
-            object-fit   : cover;
-            height       : 100%;
-            width: 40%;
-            padding-bottom: 0.5em;
-        }
-    
-        & .second-card { 
-            width: 100%;
-            margin-left: 20px;
-            display: flex;
-            flex-direction: column;
-            font-family: $font-text;
-    
-            & a { 
-                display: flex;
-                text-decoration: none;
-                width: 80%;
-                background: $color-gradient-logo;
-                margin-top: 20px;
-                margin-right: 0px;
-                justify-content: center;
-                align-items: center;
-                height: 40px;
-                text-transform: uppercase;
-                color: white;
-                margin-top: 75px ;
-                border-radius: 1em 1em 1em 1em;
-                @include zoom;
-                &:hover { 
-                    box-shadow:5px 15px 35px -10px rgba(0,0,0,0.46);
-                    background: $color-gradient-logo-inverse
-                }
-            } 
-            & .price, .name { 
-                width: 50%;
-                font-size: 1.4em;
-                margin: 1px;
-                font-weight: bold;
-                padding-bottom: 30px;
-                padding-top: 30px;
-                border-bottom: black solid 1px;
-                color: $color-text-logo;
-            }
-        } 
-        }
-    }
+		& .second-card {
+			height: 30%;
+			margin-left: 20px;
+			display: flex;
+			flex-direction: row;
+			font-family: $font-text;
+
+			& a {
+				display: flex;
+				text-decoration: none;
+				font-size: 1.3em;
+				width: 35%;
+				height: 100%;
+				background: $color-gradient-logo;
+				justify-content: center;
+				align-items: center;
+				color: white;
+				border-radius: 0em 0em 1em 5em;
+
+				&:hover {
+					box-shadow: 5px 15px 35px -10px rgba(0, 0, 0, 0.46);
+					background: $color-gradient-logo-inverse;
+				}
+			}
+			& .third-div {
+				display: flex;
+				width: 65%;
+				flex-direction: column;
+				justify-content: center;
+			}
+
+			& .price,
+			.name {
+				font-size: 1.2em;
+				margin: 1px;
+				font-weight: bold;
+				color: $color-text-logo;
+				margin: 5px;
+			}
+
+			& .name {
+				font-family: "Bentham", serif;
+				font-size: 1.3em;
+			}
+
+			& .price {
+				font-family: "Suranna", serif;
+			}
+		}
+	}
+}

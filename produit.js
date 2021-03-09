@@ -1,15 +1,13 @@
-// const { url } = require("inspector");
-
 const urlActual = window.location.href;
 console.log(urlActual);
 
 const urlProduit = new URL(urlActual);
 const idProduit = urlProduit.searchParams.get("id");
-console.log("récupérer l'id via searchParam = ", idProduit);
-console.log(idProduit);
 
 fetch("http://localhost:3000/api/furniture/" + idProduit)
-	.then((reponse) => reponse.json())
+	.then((reponse) => {
+		return reponse.json();
+	})
 	.then((data) => {
 		// création de la card produit
 		let createDiv = document.createElement("div");
@@ -19,6 +17,9 @@ fetch("http://localhost:3000/api/furniture/" + idProduit)
 
 		let createSecondDiv = document.createElement("div");
 		createSecondDiv.className = "second-card";
+
+		let createThirdDiv = document.createElement("div");
+		createThirdDiv.className = "third-div-product";
 
 		// création des éléments au sein de la card produit
 		let createName = document.createElement("p");
@@ -35,10 +36,10 @@ fetch("http://localhost:3000/api/furniture/" + idProduit)
 		let createSelect = document.createElement("select");
 		createSelect.innerText = "choix du vernis";
 
-		for (let j = 0; j < data.varnish.length; j++) {
+		for (let i = 0; i < data.varnish.length; i++) {
 			let createOption = document.createElement("option");
-			createOption.innerText = data.varnish[j];
-			createOption.value = data.varnish[j];
+			createOption.innerText = data.varnish[i];
+			createOption.value = data.varnish[i];
 			createSelect.appendChild(createOption);
 		}
 
@@ -53,22 +54,30 @@ fetch("http://localhost:3000/api/furniture/" + idProduit)
 		createButtonRedirection.innerText = "voir ma commande";
 
 		// affichage des éléments de la carte-produit
-		document.querySelector(".section-produit").appendChild(createDiv);
 		createDiv.appendChild(createImg);
-		createDiv.appendChild(createSecondDiv);
+
 		createSecondDiv.appendChild(createName);
 		createSecondDiv.appendChild(createDescription);
-		createSecondDiv.appendChild(createPrice);
+
 		createSecondDiv.appendChild(createSelect);
 		createSecondDiv.appendChild(createButtonAdd);
+
+		createThirdDiv.appendChild(createPrice);
+		createThirdDiv.appendChild(createButtonAdd);
+
+		createSecondDiv.appendChild(createThirdDiv);
 		createSecondDiv.appendChild(createButtonRedirection);
+
+		createDiv.appendChild(createSecondDiv);
+		document.querySelector(".section-produit").appendChild(createDiv);
 
 		let cageCount = document.getElementsByClassName("cage-count");
 
 		// ------------------  création de l'objet produit -------------//
 		let productStockLocal = JSON.parse(localStorage.getItem("product")) || [];
 
-		let objectProduct = {
+		// revoir création objet avec data
+		const objectProduct = {
 			id: idProduit,
 			name: createName.innerHTML,
 			price: createPrice.innerText,
@@ -83,16 +92,14 @@ fetch("http://localhost:3000/api/furniture/" + idProduit)
 		});
 
 		// ------------------------- FONCTION ADDTOCARD - LOCAL STORAGE ---------------------------//
-		function addProductToCart(propriete) {
+		function addProductToCart(productToAdd) {
 			for (let i = 0; i < productStockLocal.length; i++) {
-				if (productStockLocal[i].name === propriete.name) {
+				if (productStockLocal[i].name === productToAdd.name) {
 					productStockLocal[i].quantity++;
-					localStorage.setItem("product", JSON.stringify(productStockLocal));
 					return;
 				}
 			}
-			productStockLocal.push(propriete);
-			return;
+			productStockLocal.push(productToAdd);
 		}
 	});
 // ------------------------- FIN DE L'AJOUT AU LOCAL STORAGE ---------------------------//

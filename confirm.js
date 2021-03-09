@@ -15,6 +15,9 @@ console.log(userLastName);
 console.log(idCommande);
 
 for (let k = 0; k < productStockLocal.length; k++) {
+	let createDiv = document.createElement("div");
+	createDiv.className = "div-confirm";
+
 	let createImgBasket = document.createElement("img");
 	createImgBasket.src = productStockLocal[k].img;
 
@@ -22,21 +25,26 @@ for (let k = 0; k < productStockLocal.length; k++) {
 	createNameBasket.innerHTML = productStockLocal[k].name;
 
 	let createPriceBasket = document.createElement("p");
-	createPriceBasket.innerHTML = productStockLocal[k].price;
+	createPriceBasket.innerHTML = "Prix : " + productStockLocal[k].price + " €";
 
 	let createQuantityBasket = document.createElement("p");
-	createQuantityBasket.innerText = Number(productStockLocal[k].quantity);
+	createQuantityBasket.innerText = "Qté : " + Number(productStockLocal[k].quantity);
 
-	articleConfirm.appendChild(createImgBasket);
-	articleConfirm.appendChild(createNameBasket);
-	articleConfirm.appendChild(createPriceBasket);
-	articleConfirm.appendChild(createQuantityBasket);
+	articleConfirm.appendChild(createDiv);
+	createDiv.appendChild(createImgBasket);
+	createDiv.appendChild(createNameBasket);
+	createDiv.appendChild(createPriceBasket);
+	createDiv.appendChild(createQuantityBasket);
 }
 
 sectionConfirm.innerText =
-	"merci " +
+	"Merci " +
 	userFirstName +
-	" " +
-	userLastName +
-	" votre commande a bien été prise en compte, vous trouverez un récapitulatif ci-dessous. Elle porte le numéro " +
-	idCommande;
+	" pour votre commande ! Elle a bien été prise en compte, vous trouverez un récapitulatif ci-dessous" +
+	"\n" +
+	"\n" +
+	"Votre numéro de commande : " +
+	idCommande +
+	"\n" +
+	"\n" +
+	" En espérant vous revoir très vite sur Orinoco !";

@@ -15,15 +15,12 @@
 		<header>
 			<a href="index.html">
 				<h1 class="logo">
-					<img
-						src="https://user.oc-static.com/upload/2019/09/04/15675819263013_image1.png"
-					/>
+					<img src="logo.png" />
 				</h1>
 			</a>
 			<a>
-				<i class="fas fa-shopping-cart">
-					<p class="cage-count">0</p>
-				</i>
+				<i class="fas fa-shopping-cart"> </i>
+				<p class="cage-count">0</p>
 			</a>
 		</header>
 		<button onclick="localStorage.clear()">Clear local storage</button>
@@ -33,22 +30,68 @@
 			<article class="basket-recap">
 				<h2>Total HT</h2>
 				<p class="price-product-recap">0</p>
-				<h2>TVA</h2>
+				<h2>Tva</h2>
 				<p class="tva-product-recap">0</p>
-				<h2>TOTAL TTC</h2>
+				<h2>Total Ttc</h2>
 				<p class="total-product-recap">0</p>
 
-				<Form method="POST" class = "formulaire" name="form">
-					<input input="text" name="firstname" value="" class="firstname" placeholder="prénom"><br>
-						<input input="text" name="lastname" value="" class="lastname" placeholder="nom"><br>
-							<input input="text" name="address" value="" class="address" placeholder="adresse"><br>
-								<input input="text" name="city" value="" class="city" placeholder="ville de résidence"><br>
-									<input input="text" type ="email" name="input" value="" class="mail" placeholder="adresse mail"><br>
-										<input type = "submit" class="confirm-commande" name ="text" value = "confirmer ma commande"></input>
-				</Form>
-				<div class ="erreur"></div>
+				<form method="POST" class="formulaire" name="form">
+					<h2 class="informations">Informations de livraison</h2>
+					<br />
+					<input
+						input="text"
+						name="firstname"
+						value=""
+						class="firstname"
+						placeholder="Prénom"
+					/><br />
+					<input
+						input="text"
+						name="lastname"
+						value=""
+						class="lastname"
+						placeholder="Nom"
+					/><br />
+					<input
+						input="text"
+						name="address"
+						value=""
+						class="address"
+						placeholder="Adresse"
+					/><br />
+					<input
+						input="text"
+						name="city"
+						value=""
+						class="city"
+						placeholder="Ville de résidence"
+					/><br />
+					<input
+						input="text"
+						type="email"
+						name="input"
+						value=""
+						class="mail"
+						placeholder="Adresse mail"
+					/><br />
+					<input
+						type="submit"
+						class="confirm-commande"
+						name="text"
+						value="confirmer ma commande"
+					/>
+				</form>
+				<div class="erreur"></div>
 			</article>
 		</section>
+		<footer>
+			<div class="reseaux_sociaux">
+				<i class="fab fa-instagram"></i>
+				<i class="fab fa-facebook"></i>
+				<i class="fab fa-twitter"></i>
+				<i class="fab fa-behance-square"></i>
+			</div>
+		</footer>
 		<script src="panier.js"></script>
 	</body>
 </html>

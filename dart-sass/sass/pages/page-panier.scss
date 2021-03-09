@@ -1,54 +1,126 @@
-.section-recap { 
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  height: 800px;
-  flex-direction: row;
-  margin: 0 auto;
+.section-recap {
+	display: flex;
+	width: 100%;
+	justify-content: space-around;
 
+	// --------------------- PARTIE DE GAUCHE, RECAP DES PRODUITS  -------------------- \\
 
-  & .basket-recap  { 
-    width: 20%; 
-    height: 500px;
-    background-color: red
-  }
-  
-  & .article-recap {   
-    width: 50%;
-    display: flex;
-    flex-direction: column;
+	& .article-recap {
+		width: 45%;
+		height: auto;
+		display: flex;
+		flex-direction: column;
+		box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 
-    & .grid-produit {
-      border: black solid 2px;
-      border-radius:  1em 1em 1em 1em;
-      width: 100%;
-      height: 200px;
-      margin-top: 20px;
-        display: grid;
-        grid-template-columns: 40% 40% auto;
-        grid-template-rows: 20% 20% 60%;
-        gap: 0px 0px;
-        grid-template-areas:
-          "picturebasket productname productdelete"
-          "picturebasket productprice productdelete"
-          "picturebasket productquantity productdelete";
-      }
-      .picturebasket { 
-        border-radius:  1em 0em 0em 1em;
-        grid-row: 1 / span 3;
-        grid-column: 1;
-        display: flex;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-      .productname { grid-area: productname; }
-      .productprice { grid-area: productprice; }
-      .productquantity { grid-area: productquantity; }
-      .productdelete { grid-area: productdelete; }
+		& .grid-produit {
+			width: 100%;
+			height: 180px;
+			display: grid;
+			grid-template-columns: 40% 40% 20%;
+			grid-template-rows: 34% 33% 33%;
+			gap: 0px 0px;
+			box-shadow: rgba(0, 0, 0, 0.05) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+		}
+		.picturebasket {
+			grid-row: 1 / span 3;
+			grid-column: 1;
+			display: flex;
+			width: 82%;
+			height: 82%;
+			object-fit: cover;
+			margin: auto;
+			box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+		}
+		.productname {
+			grid-column: 2;
+			grid-row: 1;
+			font-weight: bold;
+			color: #474747;
+			font-family: "Bentham", serif;
+			margin-left: 20px;
+			margin-top: 20px;
+			font-size: 1.5em;
+		}
+		.productprice {
+			grid-column: 2;
+			grid-row: 2;
+			font-size: 2em;
+			font-family: "Suranna", serif;
+			margin-left: 20px;
+			font-size: 1.1em;
+		}
+		.productquantity {
+			grid-column: 2;
+			grid-row: 3;
+			font-size: 1.2em;
+			margin-left: 20px;
+			margin-top: 0px;
+			font-size: 1.1em;
+			font-family: "Suranna", serif;
+		}
+		select {
+			grid-column: 3;
+			grid-row: 3;
+			border: none;
+			width: 50%;
+			margin-bottom: 15px;
+		}
+		.productdelete {
+			display: flex;
+			grid-column: 3;
+			grid-row: 1;
+			justify-content: flex-end;
+			margin-right: 20px;
+			align-items: center;
+			font-size: 1.2em;
+		}
+	}
+	// --------------------- PARTIE DE DROITE, CALCUL DES PRIX  -------------------- \\
+	& .basket-recap {
+		display: flex;
+		flex-direction: column;
+		width: 25%;
+		height: 100%;
+		box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 
+		& h2,
+		p,
+		form {
+			margin-left: 20px;
+		}
 
-  }
-};
+		& h2 {
+			font-family: "lato", sans-serif;
+			margin-bottom: 0px;
+			font-size: 1.3em;
+		}
 
+		& p {
+			margin-left: 40px;
+			font-size: 1.1em;
+		}
 
+		& .informations {
+			margin-left: 0px;
+			font-family: "lato", sans-serif;
+			font-size: 1.3em;
+		}
+
+		& form {
+			display: flex;
+			flex-direction: column;
+			width: 75%;
+			padding-bottom: 25px;
+			& input {
+				border-radius: 0.4em 0.4em 0.4em 0.4em;
+				border: 1px solid black;
+				height: 25px;
+				&.confirm-commande {
+					@include mixin-button;
+					width: 75%;
+					outline: none;
+				}
+			}
+		}
+	}
+}
