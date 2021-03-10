@@ -11,6 +11,7 @@
 		display: flex;
 		flex-direction: column;
 		box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+		margin-top: 40px;
 
 		& .grid-produit {
 			width: 100%;
@@ -82,6 +83,7 @@
 		width: 25%;
 		height: 100%;
 		box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+		margin-top: 40px;
 
 		& h2,
 		p,
@@ -120,6 +122,28 @@
 					width: 75%;
 					outline: none;
 				}
+			}
+		}
+	}
+}
+
+@media (max-width: 1024px) {
+	.section-recap {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		align-items: center;
+		& .article-recap {
+			width: 95%;
+			& .grid-produit {
+				height: 220px;
+			}
+		}
+		& .basket-recap {
+			width: 75%;
+			& .confirm-commande {
+				width: 200px !important;
+				outline: none;
 			}
 		}
 	}

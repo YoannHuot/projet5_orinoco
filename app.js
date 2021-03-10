@@ -1,4 +1,6 @@
 let sectionIndex = document.querySelector(".section-index");
+let addBasketPicto = document.querySelector(".cage-count");
+let productStockLocal = JSON.parse(localStorage.getItem("product")) || [];
 
 fetch("http://localhost:3000/api/furniture")
 	.then((reponse) => {
@@ -24,7 +26,7 @@ fetch("http://localhost:3000/api/furniture")
 			createName.innerText = data[i].name;
 			createName.className = "name";
 			let createPrice = document.createElement("p");
-			createPrice.innerText = data[i].price / 1000 + " €";
+			createPrice.innerText = data[i].price / 100 + " €";
 			createPrice.className = "price";
 
 			// lien de redirection vers la page produit
@@ -42,3 +44,9 @@ fetch("http://localhost:3000/api/furniture")
 			createSecondDiv.appendChild(createAA);
 		}
 	});
+
+let quantityBasketCount = 0;
+for (let i = 0; i < productStockLocal.length; i++) {
+	quantityBasketCount += productStockLocal[i].quantity;
+}
+addBasketPicto.innerHTML = quantityBasketCount;

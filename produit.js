@@ -4,6 +4,9 @@ console.log(urlActual);
 const urlProduit = new URL(urlActual);
 const idProduit = urlProduit.searchParams.get("id");
 
+let addBasketPicto = document.querySelector(".cage-count");
+let productStockLocal = JSON.parse(localStorage.getItem("product")) || [];
+
 fetch("http://localhost:3000/api/furniture/" + idProduit)
 	.then((reponse) => {
 		return reponse.json();
@@ -26,7 +29,8 @@ fetch("http://localhost:3000/api/furniture/" + idProduit)
 		createName.innerText = data.name;
 		createName.className = "name";
 		let createPrice = document.createElement("p");
-		createPrice.innerText = data.price / 1000;
+		createPrice.innerText = data.price / 100 + " €";
+		createPrice.value = data.price / 100;
 		createPrice.className = "price";
 		let createDescription = document.createElement("p");
 		createDescription.className = "description";
@@ -80,15 +84,22 @@ fetch("http://localhost:3000/api/furniture/" + idProduit)
 		const objectProduct = {
 			id: idProduit,
 			name: createName.innerHTML,
-			price: createPrice.innerText,
+			price: createPrice.value,
 			img: createImg.src,
 			quantity: 1
 		};
 		// ----------------- ADD EVENT LISTENER DU BOUTON AJOUTER AU PANIER ----------------- ///
-
 		createButtonAdd.addEventListener("click", () => {
 			addProductToCart(objectProduct);
 			localStorage.setItem("product", JSON.stringify(productStockLocal));
+			countBasketQuantity();
+			function countBasketQuantity() {
+				let quantityBasketCount = 0;
+				for (let i = 0; i < productStockLocal.length; i++) {
+					quantityBasketCount += productStockLocal[i].quantity;
+				}
+				addBasketPicto.innerHTML = quantityBasketCount;
+			}
 		});
 
 		// ------------------------- FONCTION ADDTOCARD - LOCAL STORAGE ---------------------------//
@@ -103,3 +114,14 @@ fetch("http://localhost:3000/api/furniture/" + idProduit)
 		}
 	});
 // ------------------------- FIN DE L'AJOUT AU LOCAL STORAGE ---------------------------//
+
+// ------------------------- AJOUT AU PICTO PANIER --------------------------- //
+countBasketQuantity(); // permet de l'afficher sur la page dès l'arrivée
+
+function countBasketQuantity() {
+	let quantityBasketCount = 0;
+	for (let i = 0; i < productStockLocal.length; i++) {
+		quantityBasketCount += productStockLocal[i].quantity;
+	}
+	addBasketPicto.innerHTML = quantityBasketCount;
+}

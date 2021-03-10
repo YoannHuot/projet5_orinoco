@@ -1,4 +1,5 @@
 let productStockLocal = JSON.parse(localStorage.getItem("product")); // variable ESSENTIEL qui permet de transformer le JSON en Javascript$ //
+let addBasketPicto = document.querySelector(".cage-count");
 
 // variable confirmation commande / prix
 let articleRecap = document.querySelector(".article-recap");
@@ -89,7 +90,9 @@ else {
 
 		// --- ADDEVENTLISTERER CHANGEMENT DE QUANTITE SUR LE SELECTION ---- ///
 		createSelectQuantityBasket.addEventListener("change", (event) => {
-			let testConfirm = confirm("voulez vous changer le localstorage ?"); // attention
+			let testConfirm = confirm(
+				"voulez-vous modifier la quantité de " + createNameBasket.innerHTML + " ?"
+			); // attention
 			if (testConfirm) {
 				let resultOptionSelect = Number(event.target.value);
 				createQuantityBasket.innerText = Number(resultOptionSelect);
@@ -229,14 +232,9 @@ formulaire.addEventListener("submit", (e) => {
 	}
 });
 
-/**
- * Expects request to contain:
- * contact: {
- *   firstName: string,
- *   lastName: string,
- *   address: string,
- *   city: string,
- *   email: string
- * }
- * products: [string] <-- array of product _id
- */
+let quantityBasketCount = 0;
+for (let i = 0; i < productStockLocal.length; i++) {
+	// stockQuantity.push(productStockLocal[i].quantity);
+	quantityBasketCount += productStockLocal[i].quantity;
+}
+addBasketPicto.innerHTML = quantityBasketCount;

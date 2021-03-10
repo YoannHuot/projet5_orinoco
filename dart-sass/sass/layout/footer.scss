@@ -2,14 +2,34 @@ footer {
 	margin: 0 auto;
 	display: flex;
 	width: 50%;
-	justify-content: space-around;
 	align-items: flex-end;
-	height: 180px;
+	justify-content: center;
+	height: 100px;
 	border-top: 1px solid black;
 	margin-top: 80px;
+	& .reseaux_sociaux {
+		display: flex;
+	}
 	& i {
 		font-size: 1.8em;
-		margin: 1.5em;
 		color: $color-gradient-logo;
+		margin: 30px;
+	}
+}
+
+@media (max-width: 768px) {
+	footer {
+		width: 60%;
+		height: 200px;
+		align-items: center;
+		& .reseaux_sociaux {
+			display: flex;
+		}
+		& i {
+			font-size: 2em;
+			color: $color-gradient-logo;
+			margin-left: 20px;
+			margin-right: 20px;
+		}
 	}
 }
